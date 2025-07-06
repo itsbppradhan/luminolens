@@ -1,5 +1,5 @@
 "use server"
-import { Client, Account, Databases } from "appwrite";
+import { Client, Account, Databases } from "node-appwrite";
 import { cookies } from "next/headers";
 import { appwriteConfig } from "./config";
 
@@ -25,12 +25,21 @@ export const createSessionClient = async () => {
 
 }
 
+export const createPublicClient = async () => {
+  const client = new Client()
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!);
+  return {
+    database: new Databases(client),
+  };
+};
+
 export const getProducts = async () => {
-  const { database } = await createSessionClient();
+  const { database } = await createPublicClient();
   const products = await database.listDocuments(
     appwriteConfig.databaseId,
     appwriteConfig.collectionProductsId
   );
-  console.log(products.documents);
+  console.log("Products:", products);
   return products.documents;
 };
