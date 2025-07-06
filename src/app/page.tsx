@@ -1,3 +1,4 @@
+import Dashboard from "@/components/dashboard";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -157,7 +158,7 @@ export default function Home() {
           </footer>
         </div>
       </SignedOut>
-      <SignedIn>WE COOK</SignedIn>
+    <SignedIn><Dashboard /></SignedIn>
     </main>
   );
 }
