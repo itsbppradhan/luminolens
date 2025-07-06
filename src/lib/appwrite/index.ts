@@ -43,3 +43,13 @@ export const getProducts = async () => {
   console.log("Products:", products);
   return products.documents;
 };
+
+export const getVideos = async () => {
+  const { database } = await createPublicClient();
+  const videos = await database.listDocuments(
+    appwriteConfig.databaseId,
+    appwriteConfig.collectionVideosId
+  );
+  console.log("Videos:", videos);
+  return videos.documents;
+};

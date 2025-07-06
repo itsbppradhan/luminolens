@@ -1,5 +1,6 @@
 import React from 'react'
 import Products from './dash/products'
+import Videos from './dash/videos'
 
 const Dashboard = () => {
   return (
@@ -9,7 +10,12 @@ const Dashboard = () => {
         <h2 className="text-xl font-semibold mb-2">Products</h2>
         <Products />
       </section>
+      <section className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Videos</h2>
+        <Videos />
+      </section>
       {/* Other sections like Videos will go here */}
+
     </div>
   )
 }

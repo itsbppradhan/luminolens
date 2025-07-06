@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Card } from '../ui/card'
 import { Button } from '../ui/button'
 import { getProducts } from '../../lib/appwrite/index'
+import Link from 'next/link'
+import { ShoppingBag } from 'lucide-react'
 
 const Products = () => {
 	const [products, setProducts] = useState<any[]>([])
@@ -36,7 +38,14 @@ const Products = () => {
 						className="w-full h-full object-cover absolute top-0 left-0 z-0"
 					/>
 					<div className="relative z-10 mt-auto bg-white/40 dark:bg-black/40 backdrop-blur text-white p-4 rounded-t-xl flex flex-col items-start">
-						<h3 className="font-semibold text-lg mb-2 text-black dark:text-white">{product.name}</h3>
+ 						<h3 className="font-semibold text-lg mb-2 text-black dark:text-white flex items-center gap-2">
+							{product.name}
+							{product.price && (
+								<span className="ml-2 text-base font-semibold text-blue-700 dark:text-blue-300 bg-blue-200/80 dark:bg-blue-950/60 px-2 py-0.5 rounded">
+									₹{product.price}
+								</span>
+							)}
+						</h3>
 						<div className="flex flex-wrap justify-start gap-2 mb-4 items-start w-full">
 							{(product.tags || []).map((tag: string) => (
 								<span
@@ -49,10 +58,19 @@ const Products = () => {
 						</div>
 						<div className="flex gap-2">
 							<Button variant="default" className="bg-blue-600 dark:bg-white text-white dark:text-blue-700 hover:bg-blue-400 dark:hover:bg-blue-900 dark:hover:text-white">
-								Buy Now
+								<ShoppingBag />
+                <Link href={`/product/${product.$id}`}>
+									Buy Now
+								</Link>
 							</Button>
-							<Button variant="outline" className="dark:border-white text-black dark:text-white hover:bg-blue-700/40 dark:hover:bg-blue-900/40">
-								Learn More
+							<Button
+								variant="outline"
+								asChild
+								className="dark:border-white text-black dark:text-white hover:bg-blue-700/40 dark:hover:bg-blue-900/40"
+							>
+								<Link href={`/product/${product.$id}`}>
+									Learn More
+								</Link>
 							</Button>
 						</div>
 					</div>

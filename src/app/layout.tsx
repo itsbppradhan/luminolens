@@ -16,6 +16,9 @@ import { ModeToggle } from '@/components/mode-toggle'
 import Link from 'next/link'
 import { dark } from '@clerk/themes'
 
+import '@vidstack/react/player/styles/default/theme.css';
+import '@vidstack/react/player/styles/default/layouts/video.css';
+
 
 
 const geistSans = Rethink_Sans({
