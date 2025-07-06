@@ -51,7 +51,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <header className="fixed flex justify-end items-center p-4 gap-4 h-16 w-full backdrop-blur-3xl z-10">
+            <header className="fixed flex justify-end items-center p-4 gap-4 h-16 w-full backdrop-blur-3xl z-50">
             <Image src="/logo.jpg" alt="LuminoLens Logo" width={40} height={40} className="rounded-full" />
             <Link className='font-bold text-xl' href="/">LuminoLens</Link>
             <span className="w-full" />
