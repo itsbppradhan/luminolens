@@ -7,6 +7,15 @@ interface ProductShowcaseProps {
   params: { id: string }
 }
 
+interface Product {
+  $id: string
+  name: string
+  price: number
+  tags?: string[]
+  file: string
+}
+
+
 const ProductShowcase = async ({ params }: ProductShowcaseProps) => {
   const products = await getProducts()
   const product = products.find((p: any) => p.$id === params.id)
