@@ -17,17 +17,7 @@ const VideoPage = async ({ params }: VideoShowcaseProps) => {
 
   return (
 <>
-<MediaPlayer
-        title={video.title}
-        src={video.file || 'https://files.vidstack.io/sprite-fight/720p.mp4'}
-        className="w-full aspect-video mb-10 rounded-lg overflow-hidden shadow-lg"
-      >
-        <MediaProvider />
-        <DefaultVideoLayout
-          thumbnails={video.thumbnailsUrl || 'https://files.vidstack.io/sprite-fight/thumbnails.vtt'}
-          icons={defaultLayoutIcons}
-        />
-      </MediaPlayer>
+
     <div className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-2">{video.title}</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-4">{video.description || 'No description provided.'}</p>
