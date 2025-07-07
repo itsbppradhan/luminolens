@@ -7,6 +7,7 @@ import { Button } from '../ui/button'
 import { getVideos, getWatchedVideos, markVideoWatched } from '../../lib/appwrite'
 import { Play } from 'lucide-react'
 import { useUser } from '@clerk/nextjs'
+import Image from 'next/image'
 
 const Videos = () => {
   const [videos, setVideos] = useState<any[]>([])
@@ -61,9 +62,11 @@ const Videos = () => {
             key={video.$id}
             className="p-0 overflow-hidden flex flex-col justify-end relative h-80 shadow-lg"
           >
-            <img
+            <Image
               src={video.fileThumb || '/1.jpg'}
               alt={video.title}
+              width={500}
+              height={500}
               className="w-full h-full object-cover absolute top-0 left-0 z-0"
             />
             {isWatched && (

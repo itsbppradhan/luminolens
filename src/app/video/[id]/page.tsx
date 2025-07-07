@@ -2,6 +2,8 @@
 
 import VideoPlayer from '@/components/VideoPlayer';
 import { getVideos } from '@/lib/appwrite';
+import { MediaPlayer, MediaProvider } from '@vidstack/react';
+import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/layouts/default';
 
 interface VideoShowcaseProps {
   params: { id: string };
@@ -26,11 +28,11 @@ export default async function VideoPage({ params }: VideoShowcaseProps) {
         {video.description || 'No description provided.'}
       </p>
 
-      <VideoPlayer
-        src={video.file || 'https://files.vidstack.io/sprite-fight/720p.mp4'}
-        title={video.title}
-        thumbnails={video.thumbnailsUrl || 'https://files.vidstack.io/sprite-fight/thumbnails.vtt'}
-      />
+      
+      <MediaPlayer title={video.title} src={video.file || 'https://files.vidstack.io/sprite-fight/720p.mp4'}>
+        <MediaProvider />
+        <DefaultVideoLayout thumbnails={video.fileThumb || 'https://files.vidstack.io/sprite-fight/thumbnails.vtt'} icons={defaultLayoutIcons} />
+      </MediaPlayer>
     </div>
   );
 }

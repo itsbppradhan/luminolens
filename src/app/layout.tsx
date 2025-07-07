@@ -55,8 +55,8 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <header className="fixed flex justify-end items-center p-4 gap-4 h-16 w-full backdrop-blur-3xl z-50">
-            <Image src="/logo.jpg" alt="LuminoLens Logo" width={40} height={40} className="rounded-full" />
-            <Link className='font-bold text-xl' href="/">LuminoLens</Link>
+            <Link href="/"><Image src="/logo.jpg" alt="LuminoLens Logo" width={40} height={40} className="rounded-full" /></Link>
+            <Link className='font-bold text-xl hidden md:block' href="/">LuminoLens</Link>
             <span className="w-full" />
             <ModeToggle />
             <SignedOut>

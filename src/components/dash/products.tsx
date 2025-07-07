@@ -5,6 +5,7 @@ import { Button } from '../ui/button'
 import { getProducts } from '../../lib/appwrite/index'
 import Link from 'next/link'
 import { ShoppingBag } from 'lucide-react'
+import Image from 'next/image'
 
 const Products = () => {
 	const [products, setProducts] = useState<any[]>([])
@@ -32,9 +33,11 @@ const Products = () => {
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 			{products.map((product) => (
 				<Card key={product.$id} className="p-0 overflow-hidden flex flex-col justify-end relative h-80 shadow-lg">
-					<img
+					<Image
 						src={product.file || '/1.jpg'}
 						alt={product.name}
+						width={500}
+						height={500}
 						className="w-full h-full object-cover absolute top-0 left-0 z-0"
 					/>
 					<div className="relative z-10 mt-auto bg-white/40 dark:bg-black/40 backdrop-blur text-white p-4 rounded-t-xl flex flex-col items-start">

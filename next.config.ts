@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['fra.cloud.appwrite.io'], // Add the domain to the list
+  },
 };
 
 export default nextConfig;
