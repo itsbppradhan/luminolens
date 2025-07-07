@@ -29,7 +29,7 @@ export default async function VideoPage({ params }: VideoShowcaseProps) {
       </p>
 
       
-      <MediaPlayer title={video.title} src={video.file || 'https://files.vidstack.io/sprite-fight/720p.mp4'}>
+      <MediaPlayer playsInline title={video.title} src={video.file || 'https://files.vidstack.io/sprite-fight/720p.mp4'}>
         <MediaProvider />
         <DefaultVideoLayout thumbnails={video.fileThumb || 'https://files.vidstack.io/sprite-fight/thumbnails.vtt'} icons={defaultLayoutIcons} />
       </MediaPlayer>
